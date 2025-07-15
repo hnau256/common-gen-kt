@@ -1,20 +1,16 @@
 plugins {
-    val kotlinVersion = "2.1.20"
+    val kotlinVersion = "2.2.0"
     kotlin("jvm") version kotlinVersion
     id("maven-publish")
 }
 
-group = "com.github.hnau256"
-version = "1.0.0"
+group = "com.github.hnau256.common-gen-kt"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
 }
-
-/*dependencies {
-    implementation("com.github.hnau256:common-kotlin:1.0.0")
-}*/
 
 tasks {
     create<Jar>("sourcesJar") {
