@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     val kotlinVersion = "2.2.21"
     kotlin("jvm") version kotlinVersion
@@ -5,7 +7,7 @@ plugins {
 }
 
 group = "com.github.hnau256.common-gen-kt"
-version = "1.2.0"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
@@ -19,6 +21,13 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:2.1.2")
     implementation("com.github.hnau256.common-kotlin:common-kotlin:1.5.0")
     implementation("com.squareup:kotlinpoet-ksp:1.15.0")
+}
+
+kotlin {
+    jvmToolchain(17)
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
 }
 
 tasks {
