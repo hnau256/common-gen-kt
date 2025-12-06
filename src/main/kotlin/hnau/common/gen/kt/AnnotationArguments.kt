@@ -21,13 +21,27 @@ class AnnotationArguments(
             name to value
         }
 
+    @PublishedApi
+    internal val argumentsNames: String by lazy {
+        arguments
+            .toList()
+            .joinToString(
+                prefix = "[",
+                postfix = "]",
+            ) { (name) -> "'$name'" }
+    }
+
     inline fun <reified T : Any> get(
         name: String,
-    ): T? = arguments[name].foldNullable(
-        ifNull = {
-            logger.error("There is no argument with name '$name'", annotation)
+        onNoArgument: () -> T? = {
+            logger.error(
+                "There is no argument with name '$name'. Available arguments: $argumentsNames",
+                annotation,
+            )
             null
         },
+    ): T? = arguments[name].foldNullable(
+        ifNull = onNoArgument,
         ifNotNull = { value ->
             (value as? T).ifNull {
                 logger.error(

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.hnau256.common-gen-kt"
-version = "1.3.0"
+version = "1.4.0"
 
 repositories {
     mavenCentral()

@@ -19,3 +19,9 @@ fun KSDeclaration.nameWithoutPackage(
     val packageName = packageName.asString()
     return fullName.removePrefix("$packageName.")
 }
+
+fun KSDeclaration.stickedName(
+    logger: KSPLogger,
+): String? = nameWithoutPackage(logger)
+    .ifNull { return null }
+    .replace(".", "")
