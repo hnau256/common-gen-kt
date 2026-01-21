@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -7,7 +8,7 @@ plugins {
 }
 
 group = "com.github.hnau256.common-gen-kt"
-version = "1.4.0"
+version = "1.5.0"
 
 repositories {
     mavenCentral()
@@ -19,7 +20,7 @@ repositories {
 dependencies {
     implementation("com.google.devtools.ksp:symbol-processing-api:2.3.3")
     implementation("io.arrow-kt:arrow-core:2.1.2")
-    implementation("com.github.hnau256.common-kotlin:common-kotlin:1.5.0")
+    implementation("com.github.hnau256.common-kotlin:common-kotlin:1.6.0")
     implementation("com.squareup:kotlinpoet-ksp:1.15.0")
 }
 
@@ -31,7 +32,7 @@ kotlin {
 }
 
 tasks {
-    create<Jar>("sourcesJar") {
+    register<Jar>("sourcesJar") {
         archiveClassifier.set("sources")
         from(sourceSets.main.get().allSource)
     }
