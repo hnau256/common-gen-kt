@@ -2,13 +2,13 @@ import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    val kotlinVersion = "2.2.21"
+    val kotlinVersion = "2.3.0"
     kotlin("jvm") version kotlinVersion
     id("maven-publish")
 }
 
 group = "com.github.hnau256.common-gen-kt"
-version = "1.5.0"
+version = "1.6.0"
 
 repositories {
     mavenCentral()
@@ -19,8 +19,8 @@ repositories {
 
 dependencies {
     implementation("com.google.devtools.ksp:symbol-processing-api:2.3.3")
-    implementation("io.arrow-kt:arrow-core:2.1.2")
-    implementation("com.github.hnau256.common-kotlin:common-kotlin:1.6.0")
+    implementation("io.arrow-kt:arrow-core:2.2.1.1")
+    implementation("com.github.hnau256.common-kotlin:common-kotlin:1.7.0")
     implementation("com.squareup:kotlinpoet-ksp:1.15.0")
 }
 
